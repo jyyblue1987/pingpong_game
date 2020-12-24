@@ -48,7 +48,7 @@ def igra(c):
             rez_a += 1
             
             info = "Igrač A: {}           Igrač B: {}".format(rez_a, rez_b)
-            msg = 'm:' + info
+            msg = 'r:' + str(rez_a) + ":" + str(rez_b)
             c.send(msg.encode('UTF-8'))     
             
             pen.clear()
@@ -60,7 +60,7 @@ def igra(c):
             rez_b += 1
             
             info = "Igrač A: {}           Igrač B: {}".format(rez_a, rez_b)
-            msg = 'm:' + info
+            msg = 'r:' + str(rez_a) + ":" + str(rez_b)
             c.send(msg.encode('UTF-8'))     
 
             pen.clear()

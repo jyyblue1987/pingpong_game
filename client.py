@@ -23,11 +23,17 @@ def primi_thread(s):
                 wind.update()     
                 x = int(lst1[1])
                 y = int(lst1[2])
+                
                 ball.setx(x)
                 ball.sety(y)
-            if lst1[0] == 'm':                
+            if lst1[0] == 'r':                
+                rez_a = int(lst1[1])
+                rez_b = int(lst1[2])
+
+                info = "Igrač A: {}           Igrač B: {}".format(rez_a, rez_b)
+
                 pen.clear()
-                pen.write(msg[2:], align="center", font=("Arial", 15, "normal"))
+                pen.write(info, align="center", font=("Arial", 15, "normal"))
         except:
             print("Data Error", msg)
 
