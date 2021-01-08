@@ -42,55 +42,6 @@ def salji_funkcija(y):
     x = str(y)
     s.send(x.encode('UTF-8'))
 
-def igra(s):
-    #Rezultat
-    rez_a = 0
-    rez_b = 0
-    
-    #Čekanje 10 sekundi
-    sleep(10)
-    #Glavni dio igre
-    while True:
-        wind.update()
-        
-        #Pomicanje loptice
-        ball.setx(ball.xcor() + ball.dx)
-        ball.sety(ball.ycor() + ball.dy)
-    
-    
-    	#Provjera granica
-        if ball.ycor() > 140:
-            ball.sety(140)
-            ball.dy *= -1
-    
-        if ball.ycor() < -140:
-            ball.sety(-140)
-            ball.dy *= -1
-    
-        if ball.xcor() > 190:
-            ball.goto(0, 0)
-            ball.dx *= -1
-            rez_a += 1
-            pen.clear()
-            pen.write("Igrač A: {}          Igrač B: {}".format(rez_a, rez_b), align="center", font=("Arial", 15, "normal"))
-    
-        if ball.xcor() < -190:
-            ball.goto(0, 0)
-            ball.dx *= -1
-            rez_b += 1
-            pen.clear()
-            pen.write("Igrač A: {}          Igrač B: {}".format(rez_a, rez_b), align="center", font=("Arial", 15, "normal"))
-    
-        #Reket i loptica kolizija
-        if ball.xcor() > 140 and ball.xcor() < 150 and ball.ycor() < paddle_b.ycor() + 40 and ball.ycor() > paddle_b.ycor() -40:
-            ball.setx(140)
-            ball.dx *= -1.2
-    
-        if ball.xcor() < -140 and ball.xcor() > -150 and ball.ycor() < paddle_a.ycor() + 40 and ball.ycor() > paddle_a.ycor() -40:
-            ball.setx(-140)
-            ball.dx /= -1.2
-                
-
 def paddle_b_up():
     y = paddle_b.ycor()
     y += 20
@@ -154,5 +105,4 @@ s=socket(AF_INET, SOCK_STREAM)
 s.connect(('127.0.0.1',7010))
 #nit za posluživanje sesije
 start_new_thread(primi_thread,(s,))
-# start_new_thread(igra,(s,))
 wind.mainloop()
